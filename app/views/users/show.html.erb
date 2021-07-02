@@ -1,21 +1,26 @@
 <div class="row">
-    <aside class="col-sm-4">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title"><%= @user.name %></h3>
-            </div>
-            <div class="card-body">
-                <div class="rounded imag-fluid">
-                    <%= user.image %>
-                </div>
-            </div>
+    <div class="d-flex flex-row bd-htghlight mb-3">
+        <div>
+            <%= image_tag @user.image.to_s %>
         </div>
-    </aside>
-    <div class="col-sm-8">
+        <div class="p-2 bd-highlight">
+            <%= link_to 'プロフィール画像を変更', edit_user_path(@user), class: 'btn btn-primary w-10 text-right' %>
+        </div>
+        <div>
+            <h3><%= @user.name %></h3>
+        </div>
+        <div class="p-2 bd-highlight">
+            <%= link_to '編集', edit_user_path(@user), class: 'btn btn-primary w-10 text-right' %>
+        </div>
+    </div>
+    <div>
         <ul class="nav nav-tabs nav-justified mb-3">
-            <li class="nav-item"><a href="#" class="nav-link">ユーザー</a></li>
+            <li class="nav-item"><%= link_to 'ユーザー', users_path, class: "nav-link" %></li>
             <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
             <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
         </ul>
+    </div>
+    <div type="button" class="btn btn-danger btn-sm" >
+        <%= link_to '退会', @user, method: :delete, data: { confirm: 'すべての情報が消えます。本当に退会してもよろしいですか？' } %>
     </div>
 </div>
