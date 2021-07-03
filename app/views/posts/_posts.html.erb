@@ -1,0 +1,18 @@
+<% if posts.any? %>
+    <ul class="list-unstyled mt-2">
+        <% posts.each do |post| %>
+            <li class="d-flex">
+                <div>
+                    <%= image_tag post.post_image.to_s %>
+                </div>
+                <div>
+                    <%=link_to (image_tag "#{current_user.image.to_s}"), user_path(current_user) %>
+                </div>
+                <div>
+                    <%= link_to post.user.name, user_path(post.user), class: "text-dexoration-none" %>
+                </div>
+            </li>
+        <% end %>
+        <%== pagy_bootstrap_nav(@pagy) %>
+    </ul>
+<% end %>

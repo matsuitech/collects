@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="d-flex flex-row bd-htghlight mb-3">
+        <div>
+            <p>Collector</p>
+        </div>
+        <div>
+            <%= image_tag @post.user.image.to_s %>
+            <h3><%= @post.user.name %></h3>
+        </div>
+        <div class="p-2 bd-highlight">
+            <%= link_to '編集', edit_post_path(@post), class: 'btn btn-primary w-10 text-right' %>
+        </div>
+        <div type="button" class="btn btn-danger btn-sm" >
+            <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        </div>
+        <div>
+            <%= image_tag @post.post_image.to_s %>
+        </div>
+        <div>
+            <h2>手に入れた日</h1>
+            <%= @post.get_at %>
+        </div>
+        <div>
+            <h2>値段</h1>
+            <%= @post.price %><%= '円' %>
+        </div>
+        <div>
+            <h2>コメント</h1>
+            <%= @post.comment %>
+        </div>
+        <div>
+            <h2>ハッシュタグ</h1>
+            <%= @post.hash_tag %>
+        </div>
+    </div>
+</div>

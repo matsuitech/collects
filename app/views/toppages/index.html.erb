@@ -1,6 +1,10 @@
 <% if logged_in? %>
-    <p>ログイン完了後トップページ</p>
-    <p>ログイン完了ユーザー：<%= current_user.name %></p>
+    <div>
+        <%= link_to '新しく保管', new_post_path, class: "btn btn-primary" %>
+    </div>
+    <div class="mb-3">
+        <%= render 'posts/posts', posts: @posts %>
+    </div>
 <% else %>
     <div class="bg-secondary p-3 p-sm-5 my-4 rounded">
         <div class="text-center text-white">

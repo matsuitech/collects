@@ -1,4 +1,12 @@
 <div class="row">
+    <div>
+        <ul class="nav nav-tabs nav-justified mb-3">
+            <li class="nav-item"><%= link_to 'ユーザー', users_path, class: "nav-link" %></li>
+            <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
+        </ul>
+    </div>
+
     <div class="d-flex flex-row bd-htghlight mb-3">
         <div>
             <%= image_tag @user.image.to_s %>
@@ -14,12 +22,28 @@
         </div>
     </div>
     <div>
-        <ul class="nav nav-tabs nav-justified mb-3">
-            <li class="nav-item"><%= link_to 'ユーザー', users_path, class: "nav-link" %></li>
-            <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
-        </ul>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">コレクション</h3>
+            </div>
+            <div class="card-body">
+                <a href="<%= myposts_path %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>"><span class="badge bg-secondary"><%= @count_posts %></span></a>
+            </div>
+            <div class="card-header">
+                <h3 class="card-title">フォロワー</h3>
+            </div>
+            <div class="card-body">
+                
+            </div>
+            <div class="card-header">
+                <h3 class="card-title">フォロー</h3>
+            </div>
+            <div class="card-body">
+                
+            </div>
+        </div>
     </div>
+
     <div type="button" class="btn btn-danger btn-sm" >
         <%= link_to '退会', @user, method: :delete, data: { confirm: 'すべての情報が消えます。本当に退会してもよろしいですか？' } %>
     </div>

@@ -1,0 +1,39 @@
+<div class="text-center">
+    <h1>保管する</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+        
+        <%= form_with(model: @post) do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
+        
+            <div class="mb-3">
+                <%= f.label :post_image, '写真をアップロード' %>
+                <%= f.file_field :post_image, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :get_at, '手に入れた日' %>
+                <%= f.date_field :get_at, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :price, '値段' %>
+                <%= f.text_field :price, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :comment, 'コメント' %>
+                <%= f.text_field :comment, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :hash_tag, 'ハッシュタグ追加' %>
+                <%= f.text_field :hash_tag, class: 'form-cotrol' %>
+            </div>
+            
+            <%= f.submit '保管', class: 'btn btn-primary w-100' %>
+        <% end %>
+    </div>
+</div>
