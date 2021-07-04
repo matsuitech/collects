@@ -1,7 +1,8 @@
 class ToppagesController < ApplicationController
   def index
     if logged_in?
-      @pagy, @posts = pagy(Post.order(id: :desc))
+      @post = current_user.posts.build
+      @pagy, @posts = pagy(current_user.feed_posts.order(id: :desc))
     end
   end
 end

@@ -1,12 +1,4 @@
 <div class="row">
-    <div>
-        <ul class="nav nav-tabs nav-justified mb-3">
-            <li class="nav-item"><%= link_to 'ユーザー', users_path, class: "nav-link" %></li>
-            <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー <span class="badge bg-secondary"><%= @count_followers %></span></a></li>
-            <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー <span class="badge bg-secondary"><%= @count_followings %></span></a></li>
-        </ul>
-    </div>
-
     <div class="d-flex flex-row bd-htghlight mb-3">
         <div>
             <%= image_tag @user.image.to_s %>

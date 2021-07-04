@@ -19,7 +19,7 @@ class PostsController < ApplicationController
       flash[:success] = 'Show Caseに並べました'
       redirect_to @post
     else
-      @pagy, @posts = pagy(current_user.posts.order(id: :desc))
+      @pagy, @posts = pagy(current_user.feed_posts.order(id: :desc))
       flash.now[:danger] = '失敗しました'
       render :new
     end

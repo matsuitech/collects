@@ -9,17 +9,17 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <% if logged_in? %>
                     <div class="btn-group">
-                        <ul class="navbar-nav">
-                            <li class="ms-3"><%= link_to 'ユーザー', users_path, class: 'nav-link' %></li>
-                        </ul>
                         <ul>
                             <li class="ms-3"><%=link_to (image_tag "#{current_user.image.to_s}"), user_path(current_user) %></li>
                         </ul>
                         <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.name %></button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li class="dropdoen-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %></li>
+                            <li class="dropdown-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %></li>
+                            <li class="dropdown-item"><%= link_to 'ユーザー', users_path, class: "nav-link" %></li>
+                            <li class="dropdown-item"><a href="<%= followers_user_path(current_user) %>" class="nav-link <%= 'active' if action_name == "followers" %>">フォロワー <span class="badge bg-secondary"><%= @count_followers %></span></a></li>
+                            <li class="dropdown-item"><a href="<%= followings_user_path(current_user) %>" class="nav-link <%= 'active' if action_name == "followings" %>">フォロー <span class="badge bg-secondary"><%= @count_followings %></span></a></li>
                             <li class="dropdown-divider"></li>
-                            <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-lik' %></li>
+                            <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
                         </ul>
                     </div>
                 <% else %>
