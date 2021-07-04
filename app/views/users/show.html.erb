@@ -2,8 +2,8 @@
     <div>
         <ul class="nav nav-tabs nav-justified mb-3">
             <li class="nav-item"><%= link_to 'ユーザー', users_path, class: "nav-link" %></li>
-            <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
+            <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー <span class="badge bg-secondary"><%= @count_followers %></span></a></li>
+            <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー <span class="badge bg-secondary"><%= @count_followings %></span></a></li>
         </ul>
     </div>
 
@@ -16,6 +16,9 @@
         </div>
         <div>
             <h3><%= @user.name %></h3>
+        </div>
+        <div>
+            <%= render 'relationships/follow_button', user: @user %>
         </div>
         <div class="p-2 bd-highlight">
             <%= link_to '編集', edit_user_path(@user), class: 'btn btn-primary w-10 text-right' %>

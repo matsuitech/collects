@@ -1,3 +1,12 @@
+<div>
+    <ul class="nav nav-tabs nav-justified mb-3">
+        <li class="nav-item"><%= link_to 'ユーザー', users_path, class: "nav-link" %></li>
+        <li class="nav-item"><a href="<%= followers_user_path(current_user) %>" class="nav-link <%= 'active' if action_name == "followers" %>">フォロワー <span class="badge bg-secondary"><%= @count_followers %></span></a></li>
+        <li class="nav-item"><a href="<%= followings_user_path(current_user) %>" class="nav-link <%= 'active' if action_name == "followings" %>">フォロー <span class="badge bg-secondary"><%= @count_followings %></span></a></li>
+    </ul>
+</div>
+
+
 <% if users.any? %>
     <ul class="list-unstyled">
         <% users.each do |user| %>
@@ -8,6 +17,9 @@
                     </div>
                     <div>
                         <p><%= link_to "#{user.name}", user_path(user), class: "text-decoration-none" %></p>
+                    </div>
+                    <div>
+                        <%= render 'relationships/follow_button', user: user %>
                     </div>
                 </div>
             </li>

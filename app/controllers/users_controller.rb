@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :edit, :destroy]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :destroy, :follwings, :followeers]
+  
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
   end
@@ -48,6 +49,18 @@ class UsersController < ApplicationController
     
     flash[:success] = '退会しました'
     redirect_to :root
+  end
+  
+  def followings
+    @user = User.find(params[:id])
+    @pagy, @followings = pagy(@user.followings)
+    counts(@user)
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @pagy, @followers = pagy(@user.followers)
+    counts(@user)
   end
   
   private
