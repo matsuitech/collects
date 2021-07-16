@@ -1,10 +1,15 @@
-<%= render 'posts/myposts' %>
-
 <% if logged_in? %>
-    <div>
+    <div class="new_posts">
         <%= link_to '新しく保管', new_post_path, class: "btn btn-primary" %>
     </div>
-    <div class="mb-3">
+    <div class="myshowcase_link">
+        <h1><%= link_to 'My Showcase', myshowcase_posts_path, :style=>"color:black" %></h1>
+    </div>
+    <div class="myposts_all">
+        <%= render 'posts/myposts', posts: @posts %>
+    </div>
+    <div class="timeline">
+        <h1>タイムライン</h1>
         <%= render 'posts/posts', posts: @posts %>
     </div>
 <% else %>

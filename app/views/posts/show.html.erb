@@ -1,36 +1,58 @@
+<div>
+    <%= link_to '戻る', :back, class: "text-decoration-none" %>
+</div>
 <div class="row">
-    <div class="d-flex flex-row bd-htghlight mb-3">
-        <div>
-            <p>Collector</p>
+    <div class="bd-htghlight mb-3">
+        <div class="d-flex">
+            <div class="col-2">
+                <div>
+                    <h5>Collector</h5>
+                </div>
+                <div class="icon">
+                    <%= image_tag @post.user.image.to_s %>
+                </div>
+            </div>
+            <div class="post_show_user d-flex flex-row">
+                <div class="mt-4">
+                    <h3><%= @post.user.name %></h3>
+                </div>
+                <div class="d-flex post_edit_delete">
+                    <% if current_user == @post.user %>
+                        <div class="p-2 bd-highlight">
+                            <%= link_to 'アイテム編集', edit_post_path(@post), class: 'btn btn-outline-primary btn-sm text-right mt-3' %>
+                        </div>
+                        <div type="button" class="p-2 post_delete" >
+                            <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'text-decoration-none btn btn-danger btn-sm mt-3' %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
         </div>
-        <div>
-            <%= image_tag @post.user.image.to_s %>
-            <h3><%= @post.user.name %></h3>
-        </div>
-        <div class="p-2 bd-highlight">
-            <%= link_to '編集', edit_post_path(@post), class: 'btn btn-primary w-10 text-right' %>
-        </div>
-        <div type="button" class="btn btn-danger btn-sm" >
-            <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %>
-        </div>
-        <div>
+        <div class="posts_show_image col-7 col-md-6 mx-auto">
             <%= image_tag @post.post_image.to_s %>
         </div>
-        <div>
-            <h2>手に入れた日</h1>
-            <%= @post.get_at %>
+        <div class="date_price row text-center">
+            <div class="mb-3 col-6">
+                <h5>手に入れた日</h5>
+                <div class="border border-light w-100">
+                    <%= @post.get_at %>
+                </div>
+            </div>
+            <div class="mb-3 col-6">
+                <h5>値段</h5>
+                <div class="border border-light">
+                    <%= @post.price %><span>円</span>
+                </div>
+            </div>
         </div>
-        <div>
-            <h2>値段</h1>
-            <%= @post.price %><%= '円' %>
-        </div>
-        <div>
-            <h2>コメント</h1>
-            <%= @post.comment %>
-        </div>
-        <div>
-            <h2>ハッシュタグ</h1>
-            <%= @post.hash_tag %>
+        <div class="mb-3">
+            <h5>コメント</h5>
+            <div class="comment">
+                <%= @post.comment %>
+                <div>
+                    <%= render_with_hashtags(@post.hash_tag) %>
+                </div>
+            </div>
         </div>
     </div>
 </div>

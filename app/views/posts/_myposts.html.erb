@@ -1,8 +1,13 @@
-<div>
-    <h1>My Showcase</h1>
-</div>
-
-<div>
-    <p>ハッシュタグを表示する</p>
-    <p>自分の投稿画像一覧を表示する</p>
-</div>
+<% if posts.any? %>
+    <div class="row">
+        <% posts.first(15).each do |post| %>
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="image-wrapper">
+                    <%if post.user == current_user %>
+                        <%= link_to (image_tag post.post_image.to_s), post_path(post)%>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>

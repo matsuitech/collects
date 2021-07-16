@@ -1,0 +1,20 @@
+<h1 class="mb-3"><%= @user.name %>さんのShowcase</h1>
+
+<div class="row">
+    <% @posts.each do |post| %>
+        <div class="col-3">
+            <div class="image-wrapper">
+                <%= link_to (image_tag post.post_image.to_s), post_path(post), class: "text-decoration-none" %>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="comment_text">
+                <%= post.comment %>
+            </div>
+            <div class="hashtag_text">
+                <%= render_with_hashtags(post.hash_tag) %>
+            </div>
+        </div>
+    <% end %>
+</div>
+<%== pagy_bootstrap_nav(@pagy) %>

@@ -1,29 +1,39 @@
 <div>
     <ul class="nav nav-tabs nav-justified mb-3">
         <li class="nav-item"><%= link_to 'ユーザー', users_path, class: "nav-link" %></li>
-        <li class="nav-item"><a href="<%= followers_user_path(current_user) %>" class="nav-link <%= 'active' if action_name == "followers" %>">フォロワー <span class="badge bg-secondary"><%= @count_followers %></span></a></li>
-        <li class="nav-item"><a href="<%= followings_user_path(current_user) %>" class="nav-link <%= 'active' if action_name == "followings" %>">フォロー <span class="badge bg-secondary"><%= @count_followings %></span></a></li>
+        <li class="nav-item"><a href="<%= followers_user_path(current_user) %>" class="nav-link <%= 'active' if action_name == "followers" %>">フォロワー <span class="badge rounded-pill bg-secondary"><%= @count_followers %></span></a></li>
+        <li class="nav-item"><a href="<%= followings_user_path(current_user) %>" class="nav-link <%= 'active' if action_name == "followings" %>">フォロー <span class="badge rounded-pill bg-secondary"><%= @count_followings %></span></a></li>
     </ul>
 </div>
 
 
 <% if users.any? %>
-    <ul class="list-unstyled">
+    <div class="row">
         <% users.each do |user| %>
-            <li class="mb-3 d-flex">
-                <div>
-                    <div>
-                        <%= image_tag user.image.to_s %>
+            <div class="users">
+                <div class="d-flex">
+                    <div class="col-2 col-md-1">
+                        <div class="icon_users">
+                            <%= image_tag user.image.to_s %>
+                        </div>
                     </div>
-                    <div>
-                        <p><%= link_to "#{user.name}", user_path(user), class: "text-decoration-none" %></p>
-                    </div>
-                    <div>
-                        <%= render 'relationships/follow_button', user: user %>
+                    <div class="col-10 col-md-11">
+                        <div>
+                            <%= link_to "#{user.name}", user_path(user), class: "text-decoration-none", :style=>"color:black"%>
+                        </div>
+                        <div class="users_follow mx-auto">
+                            <%= render 'relationships/follow_button', user: user %>
+                        </div>
                     </div>
                 </div>
-            </li>
+                <div class="offset-2 col-10 offset-md-1 col-md-11">
+                    <%= user.self_introduction %>
+                </div>
+            </div>
+        </div>
         <% end %>
-    </ul>
-    <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+    <div class="pagy">
+        <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
 <% end %>

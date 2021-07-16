@@ -1,47 +1,51 @@
-<div class="row">
-    <div class="d-flex flex-row bd-htghlight mb-3">
-        <div>
-            <p>Collector</p>
-        </div>
-        <div>
-            <%= image_tag current_user.image.to_s %>
-            <h3><%= current_user.name %></h3>
-        </div>
+<div>
+    <%= link_to '戻る', :back, class: "text-decoration-none" %>
+</div>
+<div class="text-center">
+    <div>
+        <h1>このアイテムを編集</h1>
+    </div>
+    <div class="posts_show_image col-7 col-md-6 mx-auto">
+        <%= image_tag @post.post_image.to_s %>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-6 offset-sm-3">
-        
+    <div class="col-sm-6 offset-sm-3 mt-3">
         <%= form_with(model: @post) do |f| %>
             <%= render 'layouts/error_messages', model: f.object %>
         
             <div class="mb-3">
-                <%= f.label :post_image, '写真をアップロード' %>
+                <h5><%= f.label :post_image, '写真をアップロード' %></h5>
                 <%= f.file_field :post_image, class: 'form-control' %>
+                <p>※画像を変更しない場合は、再度アップロードする必要はありません。</p>
+            </div>
+            
+            <div class="date_price">
+                <div class="mb-3">
+                    <h5><%= f.label :get_at, '手に入れた日' %></h5>
+                    <%= f.date_field :get_at, class: 'form-control w-100' %>
+                </div>
+                
+                <div class="mb-3">
+                    <h5><%= f.label :price, '値段' %></h5>
+                    <div class="d-flex">
+                        <%= f.text_field :price, class: 'form-control w-100' %><span class="mt-2">円</span>
+                    </div>
+                </div>
             </div>
             
             <div class="mb-3">
-                <%= f.label :get_at, '手に入れた日' %>
-                <%= f.date_field :get_at, class: 'form-control' %>
+                <h5><%= f.label :comment, 'コメント' %></h5>
+                <%= f.text_area :comment, class: 'form-control w-100' %>
             </div>
             
             <div class="mb-3">
-                <%= f.label :price, '値段' %>
-                <%= f.text_field :price, class: 'form-control' %>
+                <h5><%= f.label :hash_tag, 'ハッシュタグ追加' %></h5>
+                <%= f.text_field :hash_tag, class: 'form-control w-100' %>
             </div>
             
-            <div class="mb-3">
-                <%= f.label :comment, 'コメント' %>
-                <%= f.text_field :comment, class: 'form-control' %>
-            </div>
-            
-            <div class="mb-3">
-                <%= f.label :hash_tag, 'ハッシュタグ追加' %>
-                <%= f.text_field :hash_tag, class: 'form-cotrol' %>
-            </div>
-            
-            <%= f.submit '編集', class: 'btn btn-primary w-100' %>
+            <%= f.submit '編集', class: 'btn btn-primary w-50 d-block mx-auto mt-5' %>
         <% end %>
     </div>
 </div>

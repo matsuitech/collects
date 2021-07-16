@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
+    counts(current_user)
   end
 
   def show
@@ -63,9 +64,19 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+  def posts
+    @user = User.find(params[:id])
+    if @user == current_user
+      redirect_to myshowcase_posts_path
+    else
+    @pagy, @posts = pagy(@user.posts.order(id: :desc), items: 20)
+    counts(@user)
+    end
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :image, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :image, :password, :password_confirmation, :self_introduction)
   end
 end

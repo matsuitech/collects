@@ -1,0 +1,30 @@
+.user_show_name {
+    margin: 10px;
+}
+.user_show_button {
+    margin-left: 20px;
+}
+
+.comment_text{
+    font-size: 5px;
+}
+.hashtag_text {
+    font-size: 3px;
+}
+
+/* /users */
+.users {
+    border-bottom: 2px solid #C0C0C0;
+    padding-bottom: 7px;
+}
+.users_name {
+    font-size: 2.0em;
+    font-family: "メイリオ";
+}
+.icon_users img {
+    width: 70%;
+    border-radius: 50%;
+}
+.users_follow {
+    width: 70%;
+}

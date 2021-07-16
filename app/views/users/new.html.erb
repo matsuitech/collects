@@ -3,33 +3,37 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-6 offset-sm-3">
+    <div class="signup col-sm-5 mx-auto">
+    <div class="col-sm-7 mx-auto text-dark">
         
         <%= form_with(model: @user) do |f| %>
             <%= render 'layouts/error_messages', model: f.object %>
         
             <div class="mb-3">
                 <%= f.label :name, 'アカウント名' %>
-                <%= f.text_field :name, class: 'form-control' %>
+                <%= f.text_field :name, class: 'form-control', placeholder: 'アカウント名を入力' %>
+                <p>※半角英数字を入力してください</p>
             </div>
             
             <div class="mb-3">
                 <%= f.label :email, 'メールアドレス' %>
-                <%= f.email_field :email, class: 'form-control' %>
+                <%= f.email_field :email, class: 'form-control', placeholder: 'メールアドレスを入力' %>
             </div>
             
             <div class="mb-3">
                 <%= f.label :password, 'パスワード' %>
-                <%= f.password_field :password, class: 'form-control' %>
+                <%= f.password_field :password, class: 'form-control', placeholder: 'パスワードを入力' %>
             </div>
             
             <div class="mb-3">
                 <%= f.label :password_confirmation, 'パスワード確認' %>
-                <%= f.password_field :password_confirmation, class: 'form-control' %>
+                <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワードを入力' %>
             </div>
-            
-            <%= f.submit '新規登録', class: 'btn btn-primary w-100' %>
+            <div class="signup_button">
+                <%= f.submit 'アカウント作成', class: 'btn text-dark mx-auto' %>
+            </div>
         <% end %>
-    <%= link_to 'ログイン', login_path %>
+    <p>すでにアカウントをお持ちの方は <%= link_to 'ログイン', login_path %></p>
+    </div>
     </div>
 </div>

@@ -10,11 +10,20 @@ Rails.application.routes.draw do
         member do
             get :followings
             get :followers
+            get :posts
         end
     end
     
     get 'myposts', to: 'posts#index'
-    resources :posts, except: [:index]
+    resources :posts, except: [:index] do
+        collection do
+            get 'myshowcase'
+        end
+    end
     
     resources :relationships, only: [:create, :destroy]
+    
+    get '/hashtags/:name/posts', to: "posts#hashtag"
+    
+    get '/hashtags/:name/myposts', to: "posts#myhashtag"
 end

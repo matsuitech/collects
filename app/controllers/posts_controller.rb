@@ -49,6 +49,20 @@ class PostsController < ApplicationController
     redirect_to :root
   end
   
+  def hashtag
+    @user = current_user
+    @tag = Hashtag.find_by(hash_name: params[:name])
+    @posts = @tag.posts
+  end
+  
+  def myshowcase
+    @user = current_user
+    @pagy, @posts = pagy(@user.posts.order(id: :desc))
+  end
+  
+
+  private
+  
   def post_params
     params.require(:post).permit(:post_image, :get_at, :price, :comment, :hash_tag)
   end

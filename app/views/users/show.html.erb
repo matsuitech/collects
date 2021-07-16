@@ -1,45 +1,66 @@
 <div class="row">
     <div class="d-flex flex-row bd-htghlight mb-3">
-        <div>
-            <%= image_tag @user.image.to_s %>
-        </div>
-        <div class="p-2 bd-highlight">
-            <%= link_to 'プロフィール画像を変更', edit_user_path(@user), class: 'btn btn-primary w-10 text-right' %>
-        </div>
-        <div>
-            <h3><%= @user.name %></h3>
-        </div>
-        <div>
-            <%= render 'relationships/follow_button', user: @user %>
-        </div>
-        <div class="p-2 bd-highlight">
-            <%= link_to '編集', edit_user_path(@user), class: 'btn btn-primary w-10 text-right' %>
-        </div>
-    </div>
-    <div>
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">コレクション</h3>
+        <div class="col-2">
+            <div class="icon">
+                <%= image_tag @user.image.to_s %>
             </div>
-            <div class="card-body">
-                <a href="<%= myposts_path %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>"><span class="badge bg-secondary"><%= @count_posts %></span></a>
+            <% if current_user == @user %>
+                <div class="user_image_edit">
+                    <%= link_to '画像を変更', edit_user_path(@user), class: "badge bg-secondary text-decoration-none" %>
+                </div>
+            <% end %>
+        </div>
+        <div class="user_show_name col-10 d-flex">
+            <div>
+                <h3><%= @user.name %></h3>
             </div>
-            <div class="card-header">
-                <h3 class="card-title">フォロワー</h3>
-            </div>
-            <div class="card-body">
-                
-            </div>
-            <div class="card-header">
-                <h3 class="card-title">フォロー</h3>
-            </div>
-            <div class="card-body">
-                
+            <div class="user_show_button">
+                <div>
+                    <%= render 'relationships/follow_button', user: @user %>
+                </div>
+                <% if current_user == @user %>
+                    <div class="bd-highlight">
+                        <%= link_to '編集', edit_user_path(@user), class: 'btn btn-outline-primary text-right btn-sm' %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
-
-    <div type="button" class="btn btn-danger btn-sm" >
-        <%= link_to '退会', @user, method: :delete, data: { confirm: 'すべての情報が消えます。本当に退会してもよろしいですか？' } %>
+    <div class="user_show_counts text-center" style="height: 150px;">
+        <div class="card mb-4 shadow-sm col-4">
+            <div class="card-header">
+                <h4 class="card-title my-0 fw-normal">コレクション</h4>
+            </div>
+            <div class="card-body">
+                <a href="<%= posts_user_path %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>"><span class="badge rounded-pill bg-dark"><%= @count_posts %></span></a>
+            </div>
+        </div>
+        <div class="card mb-4 shadow-sm col-4">
+            <div class="card-header">
+                <h4 class="card-title my-0 fw-normal">フォロワー</h4>
+            </div>
+            <div class="card-body">
+                <a href="<%= followers_user_path %>" class="nav-link <%= 'active' if action_name == "followers" %>"><span class="badge rounded-pill bg-dark" ><%= @count_followers %></span></a>
+            </div>
+        </div>
+        <div class="card mb-4 shadow-sm col-4">
+            <div class="card-header">
+                <h4 class="card-title my-0 fw-normal">フォロー</h4>
+            </div>
+            <div class="card-body">
+                <a href="<%= followings_user_path %>" class="nav-link <%= 'active' if action_name == "followings" %>"><span class="badge rounded-pill bg-dark"><%= @count_followings %></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="p-2 bd-highlight user_self_introduction">
+        <p><%= @user.self_introduction %><p>
+    </div>
+    
+    <div class="user_delete_box">
+        <% if current_user == @user %>
+            <div type="button" class="btn btn-danger btn-sm user_delete" >
+                <%= link_to '退会', @user, method: :delete, data: { confirm: 'すべての情報が消えます。本当に退会してもよろしいですか？' } %>
+            </div>
+        <% end %>
     </div>
 </div>

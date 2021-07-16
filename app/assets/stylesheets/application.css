@@ -13,3 +13,140 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+/* 全体 */
+html {
+    font-family: sans-serif;
+}
+.pagination {
+    justify-content: center;
+}
+img {
+    object-fit: contain;
+    background-color: #C0C0C0;
+}
+.pagy {
+    margin: 30px;
+}
+.link_text {
+    text-align: right;
+}
+.icon img {
+    width: 100%;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* toppages */
+.new_posts {
+    margin: 50px 0 40px 0;
+    line-height: 0;
+    text-align: center;
+}
+
+.myshowcase_link {
+    list-style: none;
+    background-color: #eeece9;
+}
+
+.timeline {
+    background-color: #DDFFFF;
+    margin-top: 20px;
+}
+
+.top_user {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+/* /login */
+.login_button {
+    background-color: aqua;
+    border-radius: 10px;
+    text-align-last: center;
+    margin: 0 auto;
+    width: 50%;
+}
+.login {
+    background-color: #EEEEEE;
+}
+
+/* /signup */
+.signup {
+    background-color: #EEEEEE;
+}
+.signup_button {
+    background-color: aqua;
+    border-radius: 10px;
+    text-align-last: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+/* /users/:id */
+.user_image_edit {
+    font-size: 50%;
+    margin: 5px;
+    margin-left: 6px;
+}
+.user_show_counts {
+    display: flex;
+}
+h4.card-title {
+    font-size: 18px;
+}
+@media screen and (min-width: 651px) {
+    h4.card-title {
+        font-size: 30px;
+    }
+}
+.card-body {
+    font-size: 40px;
+    margin-top: -19px;
+}
+.user_self_introduction {
+    background-color: #DDFFFF;
+}
+.user_delete_box{
+    position:relative;
+}
+.user_delete {
+    margin-top: 50px;
+    position: absolute;
+    right: 50px;
+}
+
+/* /users/:id/edit */
+.user_edit {
+    background-color: #EEEEEE;
+    padding-bottom: 30px;
+}
+
+/* /posts/new */
+.date_price {
+    display: flex;
+    justify-content: space-between;
+}
+.posts_new {
+    background-color: #EEEEEE;
+    padding-bottom: 30px;
+}
+
+/* /posts/:id */
+.post_show_user {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.post_delete {
+    margin-left: 15px;
+}
+.post_edit_delete {
+    text-align: right;
+}
+.comment {
+    background-color: #DDFFFF;
+    padding-bottom: 5px;
+}
