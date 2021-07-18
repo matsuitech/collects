@@ -8,31 +8,29 @@
 
 
 <% if users.any? %>
-    <div class="row">
-        <% users.each do |user| %>
-            <div class="users">
-                <div class="d-flex">
-                    <div class="col-2 col-md-1">
-                        <div class="icon_users">
-                            <%= image_tag user.image.to_s %>
-                        </div>
+    
+    <% users.each do |user| %>
+        <% unless user == current_user %>
+            <div class="row users">
+                <div class="col-4 col-md-1">
+                    <div class="icon_users">
+                        <%= image_tag user.image.to_s %>
                     </div>
-                    <div class="col-10 col-md-11">
-                        <div>
-                            <%= link_to "#{user.name}", user_path(user), class: "text-decoration-none", :style=>"color:black"%>
-                        </div>
-                        <div class="users_follow mx-auto">
-                            <%= render 'relationships/follow_button', user: user %>
-                        </div>
-                    </div>
+                    
                 </div>
-                <div class="offset-2 col-10 offset-md-1 col-md-11">
-                    <%= user.self_introduction %>
+                
+                <div class="col-8 col-md-9">
+                    <p><%= link_to "#{user.name}", user_path(user), class: "text-decoration-none", :style=>"color:black"%>
+                    <%= user.self_introduction %></p>
+                </div>
+                
+                <div class="col-12 col-md-2">
+                    <%= render 'relationships/follow_button', user: user %>
                 </div>
             </div>
-        </div>
         <% end %>
-    </div>
+    <% end %>
+
     <div class="pagy">
         <%== pagy_bootstrap_nav(@pagy) %>
     </div>

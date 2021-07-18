@@ -1,0 +1,26 @@
+<footer id="footer02" class="outer-block">
+  <div class="inner-block">
+    <div class="wrap">
+      <div>
+        <a href="/" class="logo">Collects</a>
+      </div>
+      <div class="cont">
+        <ul class="nav">
+          <div>
+            <% if logged_in? %>
+              <li><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
+             <% else %>
+              <li><%= link_to 'ログイン', login_path, class: "nav-link" %></li>
+             <% end %>
+          </div>
+        </ul>
+        <ul class="nav">
+          <li><a href="/company/">運営</a></li>
+        </ul>
+      </div>
+    </div>
+  </div><!-- /inner-block -->
+  <div class="copyright">
+    COPYRIGHT © 2021 Collcts All rights Reserved.
+  </div>
+</footer>

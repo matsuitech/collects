@@ -48,5 +48,9 @@ gem 'pry-byebug', group: :development
 
 gem 'pagy'
 
+#画像
 gem 'carrierwave'
 gem 'mini_magick'
+
+#日本語化
+gem 'rails-i18n'
