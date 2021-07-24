@@ -25,5 +25,4 @@ Rails.application.routes.draw do
     
     get '/hashtags/:name/posts', to: "posts#hashtag"
     
-    get '/hashtags/:name/myposts', to: "posts#myhashtag"
 end

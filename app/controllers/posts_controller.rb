@@ -60,6 +60,8 @@ class PostsController < ApplicationController
     @pagy, @posts = pagy(@user.posts.order(id: :desc))
   end
   
+  def myhashtag
+  end
 
   private
   

@@ -1,0 +1,14 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing:border-box;
+    z-index: 500;
+}
+.wrapper {
+    z-index: 0;
+    padding-top: 80px;
+}
+.top_wrapper {
+    margin-top: -70px;
+}

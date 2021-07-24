@@ -6,16 +6,17 @@
 }
 
 .comment_text{
-    font-size: 5px;
+    font-size: 15px;
 }
 .hashtag_text {
-    font-size: 3px;
+    font-size: 5px;
 }
 
 /* /users */
 .users {
     border-bottom: 2px solid #C0C0C0;
     padding-bottom: 7px;
+    margin-bottom: 10px;
 }
 .users_name {
     font-size: 2.0em;

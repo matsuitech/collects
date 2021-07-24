@@ -2,6 +2,10 @@
     <h1>プロフィール設定</h1>
 </div>
 
+<div>
+    <%= link_to '戻る', :back, class: "text-decoration-none" %>
+</div>
+
 <div class="row user_edit">
     <div class="col-sm-6 offset-sm-3">
         
@@ -16,6 +20,7 @@
             <div class="mb-3">
                 <h5><%= f.label :image, 'プロフィール画像' %></h4>
                 <%= f.file_field :image %> 
+                <p>※画像を変更しない場合は、再度アップロードする必要はありません。</p>
             </div>
             
             <div class="mb-3">
