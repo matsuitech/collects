@@ -7,8 +7,5 @@ header {
 }
 .wrapper {
     z-index: 0;
-    padding-top: 80px;
-}
-.top_wrapper {
-    margin-top: -70px;
+    padding-top: 100px;
 }

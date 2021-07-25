@@ -43,7 +43,7 @@ img {
 
 /* toppages */
 .new_posts {
-    margin: 70px 0 30px 0;
+    margin-bottom: 30px;
     line-height: 0;
     text-align: center;
 }
