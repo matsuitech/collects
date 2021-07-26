@@ -36,5 +36,5 @@ class User < ApplicationRecord
         Post.where(user_id: self.following_ids + [self.id])
     end
     
-    validates :self_introduction, presence: false, length: { maximum: 255 }
+    validates :self_introduction, presence: false, length: { maximum: 150 }
 end

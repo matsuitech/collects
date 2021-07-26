@@ -6,7 +6,7 @@ ja:
                 name: アカウント名
                 email: メールアドレス
                 password_digest: パスワード
-                self_introduction: ひとこと
+                self_introduction: 自己紹介
             post:
                 get_at: 日付
                 price: 値段

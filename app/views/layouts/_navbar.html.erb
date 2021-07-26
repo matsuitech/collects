@@ -1,4 +1,4 @@
-<header class="mb-3 border-bottom ">
+<header>
     <nav style="background-color:#1E90FF;">
         <div class="container-fluid">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -12,7 +12,7 @@
                 <% if logged_in? %>
                 
                   <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <%= image_tag current_user.image.to_s, :width=>"32", :height=>"32",class: "rounded-circle" %>
+                    <%= image_tag current_user.image.to_s, alt: "アカウント画像", :width=>"32", :height=>"32",class: "rounded-circle" %>
                   </a>
               
                   <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">

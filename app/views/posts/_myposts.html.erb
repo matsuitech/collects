@@ -4,10 +4,12 @@
             <div class="col-6 col-md-3 col-lg-2">
                 <div class="image-wrapper">
                     <%if post.user == current_user %>
-                        <%= link_to (image_tag post.post_image.to_s), post_path(post)%>
+                        <%= link_to (image_tag post.post_image.to_s, alt: "コレクション画像"), post_path(post)%>
                     <% end %>
                 </div>
             </div>
         <% end %>
     </div>
+<% else %>
+<h3 class="text-center">コレクションを保管してみよう！</h3>
 <% end %>

@@ -6,16 +6,14 @@
       </div>
       <div class="cont">
         <ul class="nav">
-          <div>
-            <% if logged_in? %>
-              <li><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
-             <% else %>
-              <li><%= link_to 'ログイン', login_path, class: "nav-link" %></li>
-             <% end %>
-          </div>
+          <% if logged_in? %>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', login_path, class: "nav-link" %></li>
+          <% end %>
         </ul>
         <ul class="nav">
-          <li><a href="/company/">運営</a></li>
+          <li><a href="/operator">運営</a></li>
         </ul>
       </div>
     </div>

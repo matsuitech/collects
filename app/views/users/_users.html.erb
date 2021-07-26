@@ -14,14 +14,18 @@
             <div class="row users">
                 <div class="col-4 col-md-1">
                     <div class="icon_users">
-                        <%= image_tag user.image.to_s %>
+                        <%= image_tag user.image.to_s, alt: "アカウント画像" %>
                     </div>
                     
                 </div>
                 
                 <div class="col-8 col-md-9">
-                    <%= link_to "#{user.name}", user_path(user), class: "text-decoration-none", :style=>"color:black"%>
-                    <p><%= user.self_introduction %></p>
+                    <p><%= link_to "#{user.name}", user_path(user), class: "text-decoration-none", :style=>"color:black"%></p>
+                    <% if user.self_introduction.nil? %>
+                        <p><%= user.self_introduction %></p>
+                    <% else %>
+                        <p><%= truncate(user.self_introduction, length: 30, omission: ' ...') %></p>
+                    <% end %>
                 </div>
                 
                 <div class="col-12 col-md-2">

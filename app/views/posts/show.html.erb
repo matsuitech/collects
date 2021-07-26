@@ -9,7 +9,7 @@
                     <h5>Collector</h5>
                 </div>
                 <div class="icon">
-                    <%= image_tag @post.user.image.to_s %>
+                    <%= image_tag @post.user.image.to_s, alt: "アカウント画像" %>
                 </div>
             </div>
             <div class="post_show_user d-flex flex-row">
@@ -21,7 +21,7 @@
                         <div class="p-2 bd-highlight">
                             <%= link_to 'アイテム編集', edit_post_path(@post), class: 'btn btn-outline-primary btn-sm text-right mt-3' %>
                         </div>
-                        <div type="button" class="p-2 post_delete" >
+                        <div class="btn p-2 post_delete" >
                             <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'text-decoration-none btn btn-danger btn-sm mt-3' %>
                         </div>
                     <% end %>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="posts_show_image col-7 col-md-6 mx-auto">
-            <%= image_tag @post.post_image.to_s %>
+            <%= image_tag @post.post_image.to_s, alt: "コレクション画像" %>
         </div>
         <div class="date_price row text-center">
             <div class="mb-3 col-6">
@@ -48,7 +48,7 @@
         <div class="mb-3">
             <h5>コメント</h5>
             <div class="comment">
-                <%= @post.comment %>
+                <%= safe_join(@post.comment.split("\n"), tag(:br)) %>
                 <div>
                     <%= render_with_hashtags(@post.hash_tag) %>
                 </div>

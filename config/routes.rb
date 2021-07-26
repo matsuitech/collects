@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     root to: 'toppages#index'
+    get 'operator', to: 'toppages#operator'
     
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'

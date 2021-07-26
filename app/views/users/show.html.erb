@@ -2,7 +2,7 @@
     <div class="d-flex flex-row bd-htghlight mb-3">
         <div class="col-2">
             <div class="icon">
-                <%= image_tag @user.image.to_s %>
+                <%= image_tag @user.image.to_s, alt: "アカウント画像" %>
             </div>
             <% if current_user == @user %>
                 <div class="user_image_edit">
@@ -53,7 +53,11 @@
         </div>
     </div>
     <div class="p-2 bd-highlight user_self_introduction">
-        <p><%= @user.self_introduction %><p>
+        <% if @user.self_introduction.nil? %>
+            <%= @user.self_introduction %>
+        <% else %>
+            <%= safe_join(@user.self_introduction.split("\n"), tag(:br)) %>
+        <% end %>
     </div>
     
     <div class="user_delete_box">

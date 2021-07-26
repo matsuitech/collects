@@ -4,7 +4,8 @@ class Post < ApplicationRecord
   belongs_to :user
   
   validates :comment, presence: false, length: { maximum: 255 }
-  validates :hash_tag, presence: true, length: { maximum: 255 }
+  validates :hash_tag, presence: true, length: { maximum: 100 },
+                        format: { with: /[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/ }
   validates :post_image, presence: true
   
   has_many :hashtag_relations, dependent: :destroy

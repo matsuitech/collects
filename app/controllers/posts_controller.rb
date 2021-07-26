@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :require_user_logged_in
   
-  def index
-  end
+  #def index
+  #end
 
   def show
     @post = Post.find(params[:id])
@@ -57,11 +57,9 @@ class PostsController < ApplicationController
   
   def myshowcase
     @user = current_user
-    @pagy, @posts = pagy(@user.posts.order(id: :desc))
+    @pagy, @posts = pagy(@user.posts.order(id: :desc), items: 25)
   end
   
-  def myhashtag
-  end
 
   private
   
