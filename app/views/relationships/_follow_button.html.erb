@@ -1,7 +1,7 @@
 <% unless current_user == user %>
     <% if current_user.following?(user) %>
         <%= form_with(model: current_user.relationships.find_by(follow_id: user.id), method: :delete) do |f| %>
-            <%= hidden_field_tag :follow_id, user.id, id, id: "follow_#{user.id}" %>
+            <%= hidden_field_tag :follow_id, user.id, id: "follow_#{user.id}" %>
             <%= f.submit '解除', class: 'btn btn-danger w-100' %>
         <% end %>
     <% else %>

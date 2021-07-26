@@ -53,11 +53,12 @@ class PostsController < ApplicationController
     @user = current_user
     @tag = Hashtag.find_by(hash_name: params[:name])
     @posts = @tag.posts
+    @pagy, @posts = pagy(@user.posts.order(id: :desc), items: 24)
   end
   
   def myshowcase
     @user = current_user
-    @pagy, @posts = pagy(@user.posts.order(id: :desc), items: 25)
+    @pagy, @posts = pagy(@user.posts.order(id: :desc), items: 24)
   end
   
 

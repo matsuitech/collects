@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   validates :hash_tag, presence: true, length: { maximum: 100 },
                         format: { with: /[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/ }
   validates :post_image, presence: true
+  validates :price, numericality: true, inclusion: { in: 0..9_999_999 }, format: { with: /\A[0-9]+\z/ }
   
   has_many :hashtag_relations, dependent: :destroy
   has_many :hashtags, through: :hashtag_relations, dependent: :destroy
