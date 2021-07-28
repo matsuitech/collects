@@ -99,7 +99,7 @@ img {
 h4.card-title {
     font-size: 18px;
 }
-@media screen and (min-width: 651px) {
+@media screen and (min-width: 716px) {
     h4.card-title {
         font-size: 30px;
     }
