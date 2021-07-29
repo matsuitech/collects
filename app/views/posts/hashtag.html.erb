@@ -6,7 +6,7 @@
         <% @posts.each do |post| %>
             <div class="col-6 col-md-3 col-lg-2 posts_myshowcase">
                 <div class="image-wrapper">
-                    <%= image_tag post.post_image.to_s, alt: "コレクション画像" %>
+                    <%= link_to (image_tag "#{post.post_image.to_s}", alt: "コレクション画像"), post_path(post) %>
                 </div>
                 <div class="top_user">
                     <div class="col-3 col-md-3">
