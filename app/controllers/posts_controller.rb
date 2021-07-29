@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:edit, :destroy]
   
   #def index
   #end
@@ -25,9 +26,8 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
+  #def edit
+  #end
 
   def update
     @post = Post.find(params[:id])
@@ -42,11 +42,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     
     flash[:success] = '削除されました'
-    redirect_to :root
+    redirect_to myshowcase_posts_path
   end
   
   def hashtag
@@ -66,5 +65,12 @@ class PostsController < ApplicationController
   
   def post_params
     params.require(:post).permit(:post_image, :get_at, :price, :comment, :hash_tag)
+  end
+  
+  def correct_user
+    @post = current_user.posts.find_by(id: params[:id])
+    unless @post
+      redirect_to root_url
+    end
   end
 end

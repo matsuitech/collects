@@ -1,3 +1,4 @@
+<h3 class="text-center"><%= @user.name %>さん</h3>
 <div>
     <ul class="nav nav-tabs nav-justified mb-3">
         <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if action_name == "followers" %>">フォロワー <span class="badge rounded-pill bg-secondary"><%= @count_followers %></span></a></li>

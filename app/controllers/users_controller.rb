@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :edit, :destroy, :follwings, :followeers]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :follwings, :followeers]
+  before_action :correct_user, only: [:edit, :destroy]
   
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
@@ -28,9 +29,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  #def edit
+  #end
 
   def update
     @user = User.find(params[:id])
@@ -45,7 +45,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     
     flash[:success] = '退会しました'
@@ -78,5 +77,12 @@ class UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:name, :email, :image, :password, :password_confirmation, :self_introduction)
+  end
+  
+  def correct_user
+    @user = current_user
+    unless @user
+      redirect_to root_url
+    end
   end
 end
