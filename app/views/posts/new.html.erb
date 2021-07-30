@@ -20,7 +20,7 @@
             <div class="date_price row">
                 <div class="mb-3 col-6">
                     <h5><%= f.label :get_at, '手に入れた日' %></h5>
-                    <%= f.date_field :get_at, class: 'form-control w-100' %>
+                    <%= f.date_field :get_at, class: 'form-control w-100' , value: Time.current.strftime('%Y-%m-%d')%>
                 </div>
                 
                 <div class="mb-3 col-6">

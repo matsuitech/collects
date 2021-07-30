@@ -49,7 +49,9 @@ gem 'pry-byebug', group: :development
 gem 'pagy'
 
 #画像
-gem 'carrierwave'
+#herokuで保存
+gem 'carrierwave', '~>1.3', '>=1.3.1'
+gem 'cloudinary'
 gem 'mini_magick'
 
 #日本語化

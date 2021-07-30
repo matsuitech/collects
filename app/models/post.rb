@@ -6,8 +6,8 @@ class Post < ApplicationRecord
   validates :comment, presence: false, length: { maximum: 255 }
   validates :hash_tag, presence: true, length: { maximum: 100 },
                         format: { with: /[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/ }
-  validates :post_image, presence: true
-  validates :price, numericality: true, inclusion: { in: 0..9_999_999 }, format: { with: /\A[0-9]+\z/ }
+  validates :post_image, presence: {message: "をアップロードしてください"}
+  validates :price, numericality: true, inclusion: { in: 0..9_999_999, message: "は0円から9,999,999円の範囲で入力してください" }, format: { with: /\A[0-9]+\z/ }
   
   has_many :hashtag_relations, dependent: :destroy
   has_many :hashtags, through: :hashtag_relations, dependent: :destroy

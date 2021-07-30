@@ -4,7 +4,11 @@ class ImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick # MiniMagickをincludeすると画像サイズ調整ができる
 
   # Choose what kind of storage to use for this uploader:
-  storage :file # 保存形式の設定
+  if Rails.env.production?
+    include Cloudinary::CarrierWave
+  else
+    storage :file # 保存形式の設定
+  end
   # storage :fog
   process :resize_to_limit => [500, 500] # 画像サイズの調整
 

@@ -51,8 +51,12 @@ class PostsController < ApplicationController
   def hashtag
     @user = current_user
     @tag = Hashtag.find_by(hash_name: params[:name])
-    @posts = @tag.posts
+    unless @tag.nil?
+      @posts = @tag.posts
     @pagy, @posts = pagy(@posts.order(id: :desc), items: 24)
+    else
+      redirect_to :root
+    end
   end
   
   def myshowcase
