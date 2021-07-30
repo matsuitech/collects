@@ -3,8 +3,7 @@
 </div>
 
 <div class="row">
-    <div class="signup col-sm-5 mx-auto">
-    <div class="col-sm-7 mx-auto text-dark">
+    <div class="signup col-sm-5 mx-auto text-dark">
         
         <%= form_with(model: @user) do |f| %>
             <%= render 'layouts/error_messages', model: f.object %>
@@ -30,10 +29,9 @@
                 <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワードを入力' %>
             </div>
             <div class="signup_button">
-                <%= f.submit 'アカウント作成', class: 'btn text-dark mx-auto' %>
+                <%= f.submit 'アカウント作成', class: 'btn text-dark' %>
             </div>
         <% end %>
     <p>すでにアカウントをお持ちの方は <%= link_to 'ログイン', login_path %></p>
-    </div>
     </div>
 </div>

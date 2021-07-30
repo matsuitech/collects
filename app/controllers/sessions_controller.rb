@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  before_action :correct_user, only: [:destroy]
+  
+  #def new
+  #end
 
   def create
     email = params[:session][:email].downcase
@@ -31,6 +33,13 @@ class SessionsController < ApplicationController
     else
       # ログイン失敗
       return false
+    end
+  end
+  
+  def correct_user
+    @user = current_user
+    unless @user
+      redirect_to root_url
     end
   end
 end

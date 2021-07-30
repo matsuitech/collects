@@ -67,7 +67,7 @@ img {
 .login_button {
     background-color: aqua;
     border-radius: 10px;
-    text-align-last: center;
+    text-align: center;
     margin: 0 auto;
     width: 50%;
 }
@@ -82,7 +82,7 @@ img {
 .signup_button {
     background-color: aqua;
     border-radius: 10px;
-    text-align-last: center;
+    text-align: center;
     margin: 0 auto;
     width: 50%;
 }

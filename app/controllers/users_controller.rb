@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :follwings, :followeers]
-  before_action :correct_user, only: [:edit, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)

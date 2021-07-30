@@ -3,8 +3,7 @@
 </div>
 
 <div class="row">
-    <div class="login col-sm-5 mx-auto">
-    <div class="col-sm-7 mx-auto text-dark">
+    <div class="login col-sm-5 mx-auto text-dark">
         
         <%= form_with(url: login_path, scope: :session) do |f| %>
         
@@ -19,11 +18,10 @@
             </div>
             
             <div class="login_button">
-                <%= f.submit 'ログイン', class: 'btn text-dark mx-auto' %>
+                <%= f.submit 'ログイン', class: 'btn text-dark' %>
             </div>
         <% end %>
         
         <p>会員登録していない方は <%= link_to '新規登録', signup_path %></p>
-    </div>
     </div>
 </div>
