@@ -62,9 +62,7 @@
     
     <div class="user_delete_box">
         <% if current_user == @user %>
-            <div type="button" class="btn btn-danger btn-sm user_delete" >
-                <%= link_to '退会', @user, method: :delete, data: { confirm: 'すべての情報が消えます。本当に退会してもよろしいですか？' } %>
-            </div>
+            <%= link_to '退会', @user, method: :delete, data: { confirm: 'すべての情報が消えます。本当に退会してもよろしいですか？' }, class: 'btn btn-danger btn-sm text-decoration-none user_delete' %>
         <% end %>
     </div>
 </div>

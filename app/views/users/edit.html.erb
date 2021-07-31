@@ -13,23 +13,23 @@
             <%= render 'layouts/error_messages', model: f.object %>
         
             <div class="mb-3">
-                <h5><%= f.label :name, 'アカウント名' %></h4>
+                <h5><%= f.label :name, 'アカウント名' %></h5>
                 <%= f.text_field :name, class: 'form-control' %>
             </div>
             
             <div class="mb-3">
-                <h5><%= f.label :image, 'プロフィール画像' %></h4>
+                <h5><%= f.label :image, 'プロフィール画像' %></h5>
                 <%= f.file_field :image %> 
                 <p>※画像を変更しない場合は、再度アップロードする必要はありません。</p>
             </div>
             
             <div class="mb-3">
-                <h5><%= f.label :self_introduction, '自己紹介' %></h4>
+                <h5><%= f.label :self_introduction, '自己紹介' %></h5>
                 <%= f.text_area :self_introduction, class: 'form-control' %>
             </div>
             
             <div class="mb-3">
-                <h5><%= f.label :email, 'メールアドレス' %></h4>
+                <h5><%= f.label :email, 'メールアドレス' %></h5>
                 <%= f.email_field :email, class: 'form-control' %>
             </div>
             
