@@ -24,7 +24,7 @@ html {
     justify-content: center;
 }
 img {
-    object-fit: contain;
+    object-fit: cover;
     background-color: #C0C0C0;
 }
 .pagy {
@@ -91,15 +91,15 @@ img {
 .user_image_edit {
     font-size: 50%;
     margin: 5px;
-    margin-left: 6px;
+    text-align: center;
 }
 .user_show_counts {
     display: flex;
 }
 h4.card-title {
-    font-size: 18px;
+    font-size: 15px;
 }
-@media screen and (min-width: 716px) {
+@media screen and (min-width: 641px) {
     h4.card-title {
         font-size: 30px;
     }
@@ -139,7 +139,6 @@ h4.card-title {
 /* /posts/:id */
 .post_show_user {
     margin-left: 20px;
-    margin-top: 20px;
 }
 .post_delete {
     margin-left: 15px;

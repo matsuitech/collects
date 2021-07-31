@@ -1,12 +1,12 @@
 <div class="row">
     <div class="d-flex flex-row bd-htghlight mb-3">
         <div class="col-2">
-            <div class="icon">
+            <div class="text-center icon_show">
                 <%= image_tag @user.image.to_s, alt: "アカウント画像" %>
             </div>
             <% if current_user == @user %>
                 <div class="user_image_edit">
-                    <%= link_to '画像を変更', edit_user_path(@user), class: "badge bg-secondary text-decoration-none" %>
+                    <%= link_to '画像を変更', edit_user_path(@user), class: "badge bg-secondary text-decoration-none"%>
                 </div>
             <% end %>
         </div>
@@ -29,7 +29,7 @@
     <div class="user_show_counts text-center" style="height: 150px;">
         <div class="card mb-4 shadow-sm col-4">
             <div class="card-header">
-                <h4 class="card-title my-0 fw-normal">コレクション</h4>
+                <h4 class="card-title my-0 fw-normal card-title-collection">コレクション</h4>
             </div>
             <div class="card-body">
                 <a href="<%= posts_user_path %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>"><span class="badge rounded-pill bg-dark"><%= @count_posts %></span></a>

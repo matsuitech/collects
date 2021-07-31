@@ -1,5 +1,6 @@
 .user_show_name {
-    margin: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 .user_show_button {
     margin-left: 20px;
@@ -23,8 +24,17 @@
     font-family: "メイリオ";
 }
 .icon_users img {
-    width: 70%;
+    width: 100%;
     border-radius: 50%;
+    height: 32px;
+    width: 32px;
+}
+.icon_show img {
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 70px;
+    width: 70px;
 }
 .users_follow {
     width: 70%;

@@ -1,12 +1,10 @@
 <div class="row">
     <div class="bd-htghlight mb-3">
+        <h5>Collector</h5>
         <div class="d-flex">
             <div class="col-2">
-                <div>
-                    <h5>Collector</h5>
-                </div>
-                <div class="icon">
-                    <%= image_tag @post.user.image.to_s, alt: "アカウント画像" %>
+                <div class="text-center icon_show">
+                    <p><%= image_tag @post.user.image.to_s, alt: "アカウント画像" %></p>
                 </div>
             </div>
             <div class="post_show_user d-flex flex-row">

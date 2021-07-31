@@ -11,7 +11,7 @@
                 <div class="top_user">
                     <div class="col-3 col-md-3">
                         <div class="icon">
-                            <%= link_to (image_tag "#{post.user.image.to_s}", alt: "アカウント画像"), user_path(post.user) %>
+                            <%= link_to (image_tag "#{post.user.image.to_s}", alt: "アカウント画像", :height=>"40", :width=>"40"), user_path(post.user) %>
                         </div>
                     </div>
                     <div class="posts_user_name">

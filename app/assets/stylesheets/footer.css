@@ -61,7 +61,7 @@
 
 @media only screen and (max-width: 640px) {
   #footer02 {
-    padding: 20px 0 0;
+    padding: 10px 0 0;
   }
 
   #footer02 .inner-block {
@@ -71,7 +71,8 @@
   .ie #footer02 .logo img,
   #footer02 .logo {
     display: block;
-    margin: 0 auto 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
   }
 
   #footer02 .nav {
