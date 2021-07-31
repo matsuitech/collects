@@ -3,14 +3,14 @@
     <% users.each do |user| %>
         <% unless user == current_user %>
             <div class="row users">
-                <div class="col-4 col-md-1">
+                <div class="col-1 col-md-1">
                     <div class="icon_users">
                         <%= image_tag user.image.to_s, alt: "アカウント画像" %>
                     </div>
                     
                 </div>
                 
-                <div class="col-8 col-md-9">
+                <div class="col-10 col-md-8 users_wrapper">
                     <p><%= link_to "#{user.name}", user_path(user), class: "text-decoration-none", :style=>"color:black"%></p>
                     <% if user.self_introduction.nil? %>
                         <p><%= user.self_introduction %></p>

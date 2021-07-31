@@ -13,6 +13,9 @@ Rails.application.routes.draw do
             get :followers
             get :posts
         end
+        collection do
+            get :edit
+        end
     end
     
     get 'myposts', to: 'posts#index'

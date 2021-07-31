@@ -38,6 +38,8 @@ img {
     border-radius: 50%;
     margin-left: 5px;
     margin-right: 5px;
+    height: 37px;
+    width: 37px;
 }
 
 
@@ -64,13 +66,6 @@ img {
 }
 
 /* /login */
-.login_button {
-    background-color: aqua;
-    border-radius: 10px;
-    text-align: center;
-    margin: 0 auto;
-    width: 50%;
-}
 .login {
     background-color: #EEEEEE;
 }
@@ -78,13 +73,6 @@ img {
 /* /signup */
 .signup {
     background-color: #EEEEEE;
-}
-.signup_button {
-    background-color: aqua;
-    border-radius: 10px;
-    text-align: center;
-    margin: 0 auto;
-    width: 50%;
 }
 
 /* /users/:id */
