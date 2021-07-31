@@ -6,6 +6,8 @@
 .logo {
     text-decoration: none;
     margin-left: 30px;
+    font-size: 30px;
+    color: aqua;
 }
 
 #footer02 .nav li a {
