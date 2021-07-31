@@ -11,9 +11,7 @@
             <div class="comment_text">
                 <%= post.comment %>
             </div>
-            <div class="hashtag_text">
-                <%= render_with_hashtags(post.hash_tag) %>
-            </div>
+            <%= render_with_hashtags(post.hash_tag) %>
         </div>
     <% end %>
 </div>
