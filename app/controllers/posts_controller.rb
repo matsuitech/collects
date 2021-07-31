@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     @post.destroy
     
     flash[:success] = '削除されました'
-    redirect_to myshowcase_posts_path
+    redirect_to :root
   end
   
   def hashtag
