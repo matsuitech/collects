@@ -7,7 +7,6 @@
                     <div class="icon_users">
                         <%= image_tag user.image.to_s, alt: "アカウント画像" %>
                     </div>
-                    
                 </div>
                 
                 <div class="col-10 col-md-8 users_wrapper">
@@ -28,5 +27,10 @@
 
     <div class="pagy">
         <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+<% else %>
+    <div class="text-center">
+        <h3>一致するユーザーは存在しません</h3>
+        <h3><%= link_to 'ユーザー 一覧へ ＞', users_path, :style=>"color:black", :class=>"text-decoration-none" %></h3>
     </div>
 <% end %>

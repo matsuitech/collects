@@ -2,5 +2,12 @@
     <%= link_to '戻る', :back, class: "text-decoration-none" %>
 </div>
 
-<h1 class="text-center mb-5">ユーザー 一覧</h1>
+<h2 class="text-center mb-5">ユーザー 一覧</h2>
+<div class="text-center mb-3">
+    <%= form_tag(users_path, :method => 'get') do %>
+        <%= text_field_tag :search, '', :placeholder=>"ユーザー名", :class=>"w-50" %>
+        <%= submit_tag '検索', :name => nil %>
+    <% end %>
+</div>
+
 <%= render 'users', users: @users %>

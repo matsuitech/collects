@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
     counts(current_user)
+    @users = User.search(params[:search])
   end
 
   def show
@@ -55,12 +56,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @pagy, @followings = pagy(@user.followings)
     counts(@user)
+    @followings = User.search(params[:search])
   end
   
   def followers
     @user = User.find(params[:id])
     @pagy, @followers = pagy(@user.followers)
     counts(@user)
+    @followers = User.search(params[:search])
   end
   
   def posts

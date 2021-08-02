@@ -37,4 +37,12 @@ class User < ApplicationRecord
     end
     
     validates :self_introduction, presence: false, length: { maximum: 150 }
+    
+    def self.search(search)
+        if search
+            User.where(['name LIKE ?', "%#{search}%"])
+        else
+            User.all
+        end
+    end
 end

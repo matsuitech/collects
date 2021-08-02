@@ -6,6 +6,13 @@
     </ul>
 </div>
 
+<div class="text-center mb-3">
+    <%= form_tag(followers_user_path, :method => 'get') do %>
+        <%= text_field_tag :search, '', :placeholder=>"ユーザー名", :class=>"w-50" %>
+        <%= submit_tag '検索', :name => nil %>
+    <% end %>
+</div>
+
 <div>
     <%= render 'users', users: @followers %>
 </div>
