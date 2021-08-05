@@ -54,26 +54,27 @@ class UsersController < ApplicationController
   
   def followings
     @user = User.find(params[:id])
-    @pagy, @followings = pagy(@user.followings)
+    @pagy, @followings = pagy(@user.followings, items: 20)
     counts(@user)
-    @followings = User.search(params[:search])
+    @followings = @followings.search(params[:search])
   end
   
   def followers
     @user = User.find(params[:id])
-    @pagy, @followers = pagy(@user.followers)
+    @pagy, @followers = pagy(@user.followers, items: 20)
     counts(@user)
-    @followers = User.search(params[:search])
+    @followers = @followers.search(params[:search])
   end
   
   def posts
     @user = User.find(params[:id])
-    if @user == current_user
-      redirect_to myshowcase_posts_path
-    else
     @pagy, @posts = pagy(@user.posts.order(id: :desc), items: 20)
     counts(@user)
-    end
+  end
+  
+  def allhashtags
+    @user = current_user
+    @pagy, @posts = pagy(@user.posts)
   end
   
   private

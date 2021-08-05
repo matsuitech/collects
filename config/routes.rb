@@ -14,19 +14,18 @@ Rails.application.routes.draw do
             get :posts
         end
         collection do
+            get :allhashtags
             get :edit
         end
     end
     
     get 'myposts', to: 'posts#index'
-    resources :posts, except: [:index] do
-        collection do
-            get 'myshowcase'
-        end
-    end
+    resources :posts, except: [:index]
     
     resources :relationships, only: [:create, :destroy]
     
-    get '/hashtags/:name/posts', to: "posts#hashtag"
+    get '/hashtags/:name/posts', to: "posts#hashtag", as: 'hashtags'
+    get '/hashtags/:name/myposts', to: "posts#myhashtag", as: 'myhashtags'
+    
     
 end

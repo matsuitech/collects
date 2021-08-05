@@ -1,0 +1,25 @@
+<div class="back_button">
+    <%= link_to '戻る', :back, class: "text-decoration-none" %>
+</div>
+<h2>自分の#<%= @tag.hash_name %></h2>
+<%= link_to 'みんなの投稿へ', hashtags_path, class: 'btn btn-info w-100 mb-3', :style=>'font-size:20px;' %>
+    <div class="row">
+        <% @posts.each do |post| %>
+            <% if post.user == current_user %>
+                <div class="col-6 col-md-3 col-lg-2 posts_myshowcase mb-2">
+                    <div class="image-wrapper">
+                        <%= link_to (image_tag "#{post.post_image.to_s}", alt: "コレクション画像"), post_path(post) %>
+                    </div>
+                    <div class="myhash_comment">
+                        <p><%= truncate(post.comment, length: 15, omissision: ' ...') %></p>
+                    </div>
+                    <div class="mb-2">
+                        <%= render_with_hashtags(post.hash_tag.truncate(12)) %>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+<div class="pagy">
+    <%== pagy_bootstrap_nav(@pagy) %>
+</div>

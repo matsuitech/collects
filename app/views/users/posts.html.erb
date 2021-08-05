@@ -1,20 +1,30 @@
-<h1 class="mb-3"><%= @user.name %>さんのShowcase</h1>
-
-<div class="row">
-    <% @posts.each do |post| %>
-        <div class="col-3">
-            <div class="image-wrapper">
-                <%= link_to (image_tag post.post_image.to_s, alt: "コレクション画像"), post_path(post), class: "text-decoration-none" %>
-            </div>
-        </div>
-        <div class="col-9">
-            <div class="comment_text">
-                <%= post.comment %>
-            </div>
-            <%= render_with_hashtags(post.hash_tag) %>
-        </div>
-    <% end %>
+<div class="back_button">
+    <%= link_to '戻る', :back, class: "text-decoration-none" %>
 </div>
+
+<% if @user == current_user %>
+
+<%= render 'myshowcase' %>
+
+<% else %>
+    <h1 class="mb-3"><%= @user.name %>さんのShowcase</h1>
+    
+    <div class="row">
+        <% @posts.each do |post| %>
+            <div class="col-3">
+                <div class="image-wrapper">
+                    <%= link_to (image_tag post.post_image.to_s, alt: "コレクション画像"), post_path(post), class: "text-decoration-none" %>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="comment_text">
+                    <%= truncate(post.comment, length: 50, omission: ' ...') %>
+                </div>
+                <%= render_with_hashtags(post.hash_tag.truncate(50)) %>
+                </div>
+        <% end %>
+    </div>
+<% end %>
 <div class="pagy">
     <%== pagy_bootstrap_nav(@pagy) %>
 </div>

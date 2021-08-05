@@ -1,0 +1,35 @@
+<h1>My Showcase</h1>
+
+<div class="box">
+    <span class="box-title">最近の投稿のハッシュタグ</span>
+    <p>
+        <% @posts.first(3).each do |post| %>
+            <%= render_with_hashtags(post.hash_tag) %>
+        <% end %>
+    </p>
+    <div class="text-end">
+        <%= link_to '続きを見る', allhashtags_users_path, class: "text-decoration-none btn btn-sm btn-outline-secondary" %>
+    </div>
+</div>
+
+<div class="row">
+    <% if @posts.any? %>
+        <% @posts.each do |post| %>
+            <div class="col-6 col-md-3 col-lg-2 posts_myshowcase mb-2" >
+                <div class="image-wrapper">
+                    <%= link_to (image_tag post.post_image.to_s, alt: "コレクション画像"), post_path(post), class: "text-decoration-none" %>
+                </div>
+                <div class="comment_text">
+                    <%= truncate(post.comment, length: 15, omission: ' ...') %>
+                </div>
+                <%= render_with_hashtags(post.hash_tag.truncate(12)) %>
+            </div>
+        <% end %>
+
+    <% else %>
+        <h3 class="text-center">コレクションを保管してみよう！</h3>
+        <div class="new_posts">
+            <%= link_to '新しく保管', new_post_path, class: "btn btn-primary" %>
+        </div>
+    <% end %>
+</div>

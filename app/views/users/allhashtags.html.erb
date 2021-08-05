@@ -1,0 +1,14 @@
+<div class="back_button">
+    <%= link_to '戻る', :back, class: "text-decoration-none" %>
+</div>
+
+<% if @posts.any? %>
+    <div class="box">
+        <span class="box-title">自分の投稿のハッシュタグ一覧</span>
+        <p>
+            <% @posts.each do |post| %>
+                <%= render_with_hashtags(post.hash_tag) %>
+            <% end %>
+        </p>
+    </div>
+<% end %>

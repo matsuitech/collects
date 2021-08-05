@@ -42,6 +42,9 @@ img {
     width: 37px;
 }
 
+.back_button {
+    margin-top: -30px;
+}
 
 /* toppages */
 .new_posts {
@@ -62,7 +65,7 @@ img {
 
 .top_user {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 /* /login */

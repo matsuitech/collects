@@ -9,6 +9,10 @@
 .comment_text{
     font-size: 15px;
 }
+.myhash_comment {
+    font-size: 15px;
+    margin-bottom: -15px;
+}
 
 /* /users */
 .users {

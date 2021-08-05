@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   belongs_to :user
   
   validates :comment, presence: false, length: { maximum: 255 }
-  validates :hash_tag, presence: true, length: { maximum: 100 },
+  validates :hash_tag, presence: true, length: { maximum: 50, message: "は合計50字までです" },
                         format: { with: /[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/ }
   validates :post_image, presence: {message: "をアップロードしてください"}
   validates :price, numericality: true, inclusion: { in: 0..9_999_999, message: "は0円から9,999,999円の範囲で入力してください" }, format: { with: /\A[0-9]+\z/ }

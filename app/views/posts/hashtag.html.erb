@@ -1,10 +1,11 @@
-<div>
+<div class="back_button">
     <%= link_to '戻る', :back, class: "text-decoration-none" %>
 </div>
 <h2>みんなの#<%= @tag.hash_name %></h2>
+<%= link_to '自分だけの投稿へ', myhashtags_path , class: 'btn btn-info w-100 mb-3', :style=>'font-size:20px;' %>
     <div class="row">
         <% @posts.each do |post| %>
-            <div class="col-6 col-md-3 col-lg-2 posts_myshowcase">
+            <div class="col-6 col-md-3 col-lg-2 posts_myshowcase mb-3">
                 <div class="image-wrapper">
                     <%= link_to (image_tag "#{post.post_image.to_s}", alt: "コレクション画像"), post_path(post) %>
                 </div>
@@ -17,6 +18,9 @@
                     <div class="posts_user_name">
                         <%= link_to "#{post.user.name}", user_path(post.user), class: "text-decoration-none" %>
                     </div>
+                </div>
+                <div class="mb-3">
+                <%= render_with_hashtags(post.hash_tag.truncate(15)) %>
                 </div>
             </div>
         <% end %>

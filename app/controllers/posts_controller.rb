@@ -58,13 +58,19 @@ class PostsController < ApplicationController
       redirect_to :root
     end
   end
-  
-  def myshowcase
-    @user = current_user
-    @pagy, @posts = pagy(@user.posts.order(id: :desc), items: 24)
-  end
-  
 
+  def myhashtag
+    @user = current_user
+    @tag = Hashtag.find_by(hash_name: params[:name])
+    unless @tag.nil?
+      @posts = @tag.posts
+    @pagy, @posts = pagy(@posts.order(id: :desc), items: 24)
+    else
+      redirect_to :root
+    end
+  end
+
+  
   private
   
   def post_params
