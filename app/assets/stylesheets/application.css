@@ -46,6 +46,13 @@ img {
     margin-top: -30px;
 }
 
+.fixed_btn {
+    position: fixed;
+    bottom: 10px;
+    right: 30px;
+    height: 40px;
+}
+
 /* toppages */
 .new_posts {
     margin-bottom: 30px;

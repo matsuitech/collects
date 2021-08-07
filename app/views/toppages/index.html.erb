@@ -13,6 +13,9 @@
             <h1>タイムライン</h1>
             <%= render 'posts/posts', posts: @posts %>
         </div>
+        <div>
+            <%= link_to '新しく保管', new_post_path, class: "fixed_btn btn btn-info rounded-circle" %>
+        </div>
     <% else %>
         <div>
             <%= render 'toppages' %>
